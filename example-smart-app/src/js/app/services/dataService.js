@@ -287,10 +287,8 @@
         var data =
         {
             grant_type: "authorization_code",
-            //client_id: "6e8b9e5b-aff8-4340-940b-652f18defd7e",
-            //redirect_uri: "https://quintonn.github.io/smart-on-fhir-tutorial/example-smart-app/",
-            client_id: "3e31fa42-e8e8-40ea-b45c-498d35eb6df5",
-            redirect_uri: "http://a449ada8.ngrok.io/",
+            client_id: "e392d189-e1d8-46f5-ae3f-3263d5edbbe2",
+            redirect_uri: "https://quintonn.github.io/smartCerner/example-smart-app/",
             code: params.code,
             state: params.state
         };
