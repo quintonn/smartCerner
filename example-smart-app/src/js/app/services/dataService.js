@@ -55,8 +55,7 @@
 
         function getDischargeSummary(patient, user, encounter, fhirServer, token)
         {
-            //var rhapsodyServer = "https://18.222.191.253:29999/smartapp";
-            var rhapsodyServer = "http://localhost:6543/smart/test";
+            var rhapsodyServer = "https://18.222.191.253:29999/smart/cerner";
 
             var userParts = user.split("/");
             user = userParts[userParts.length - 1];
