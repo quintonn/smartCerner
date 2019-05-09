@@ -1,0 +1,67 @@
+﻿<div class="card">
+    <div class="card-header">
+        Medications & Medical Devices
+    </div>
+
+    <div class="card-body text-center" ng-if="$ctrl.loading == true">
+        <!--<div class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+        </div>-->
+        <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+        <p>Loading...</p>
+    </div>
+
+    <div class="card-body" ng-if="$ctrl.data.length == 0">
+        <div class="alert alert-dark" role="alert">
+            There are no medications for this patient.
+        </div>
+    </div>
+
+    <div class="card-body" ng-if="$ctrl.ready == true">
+        <div class="accordion" id="medicationAccordion">
+            <div class="card" ng-repeat="item in $ctrl.data">
+                <div class="btn btn-primary" type="button" ng-click="$ctrl.expand(item)">
+
+                    {{item.medicationCodeableConcept.text}}
+
+                    <a class="float-md-left btn-dark btn" ng-click="$ctrl.select(item); $event.stopPropagation();">
+                        <i class="fas fa-check" ng-if="item.selected == true"></i>
+                        <i class="fas fa-times" ng-if="item.selected != true"></i>
+
+                        <!--<input type="checkbox" class="float-md-left" id="customCheck1" ng-click="$event.stopPropagation();" />-->
+                    </a>
+                </div>
+                <div ng-if="item.expanded == true">
+                    <div class="card-body">
+                        <dl class="row">
+                            <dt class="col-sm-6">Medication</dt>
+                            <dd class="col-sm-6">{{item.medicationCodeableConcept.text}}</dd>
+                            <dt class="col-sm-6">Dosage</dt>
+                            <dd class="col-sm-6">{{item.dosage[0].text}}</dd>
+                            <!--<dt class="col-sm-6">Start</dt>
+                            <dd class="col-sm-6">{{item.effectivePeriod.start}}</dd>
+                            <dt class="col-sm-6">End</dt>
+                            <dd class="col-sm-6">{{item.effectivePeriod.end}}</dd>-->
+                            <dt class="col-sm-6">Status</dt>
+                            <dd class="col-sm-6">{{item.status}}</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-body" ng-if="$ctrl.error != ''">
+        <div class="alert alert-danger" role="alert">
+            {{$ctrl.error}}
+        </div>
+    </div>
+
+    <div class="card-body text-center ">
+        <a class="btn btn-block" ng-class="{'btn-success': $ctrl.approved, 'btn-danger': $ctrl.approved == false}" ng-click="$ctrl.approve(item)">
+            <i class="fas fa-check" ng-if="$ctrl.approved == true"></i>
+            <i class="fas fa-times" ng-if="$ctrl.approved != true"></i>
+        </a>
+    </div>
+</div>

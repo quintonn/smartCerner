@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Rhapsody SMART App</title>
+
+    <link rel='stylesheet' type='text/css' href='./src/css/example-smart-app.css'>
+    <link href="lib/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <!--
+      Temporarily disable cerner-smart-embeddable-lib
+      <link rel='stylesheet' type='text/css' href='./lib/css/cerner-smart-embeddable-lib-1.0.0.min.css'>
+    -->
+
+</head>
+  <body id='mainApp'>
+
+      <!--<a href="http://localhost:2974/index.html?iss=https://fhir-myrecord.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca">Launch</a>-->
+      <!--<div id='errors'>
+    </div>-->
+      <!--<div id="loading" class="spinner">
+          <div class="bounce1"></div>
+          <div class="bounce2"></div>
+          <div class="bounce3"></div>
+      </div>-->
+
+      <div class="w3-container p-3">
+          <div class="row p-3">
+              <div class="col-sm-12">
+                  <h1>eDischarge Summary X</h1>
+              </div>
+          </div>
+
+          <div class="row p-3">
+              <div class="col-sm-12">
+                  <div class="card">
+                      <discharge></discharge>
+                  </div>
+              </div>
+          </div>
+          <div class="row p-3">
+              <div class="col-sm-12">
+                  <submit></submit>
+              </div>
+          </div>
+
+          <!-- Required JS files to enable this page to embed within an MPage -->
+          <!--
+      Temporarily disable cerner-smart-embeddable-lib
+      <script src='https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js'></script>
+      <script src='./lib/js/cerner-smart-embeddable-lib-1.0.0.min.js'></script>
+    -->
+          <!-- FHIR Client JS Library -->
+          <script src='./lib/js/fhir-client-v0.1.12.js'></script>
+
+          <!-- Prevent session bleed caused by single threaded embedded browser and sessionStorage API -->
+          <!-- https://github.com/cerner/fhir-client-cerner-additions -->
+          <script src='./lib/js/fhir-client-cerner-additions-1.0.0.js'></script>
+
+          <script src="./lib/js/jquery.1.11.3.min.js"></script>
+          <script src="./lib/js/angular-1.7.2.min.js"></script>
+          <script src='./lib/js/base64.js'></script>
+          <script src="lib/js/popper.min.js"></script>
+          <script src="lib/js/bootstrap.min.js"></script>
+
+          <!-- Application-level javascript-->
+          <script src='./src/js/example-smart-app.js'></script>
+          <script src='./src/js/constants.js?v=2'></script>
+          <script src='./src/js/main.js?v=2'></script>
+
+          <!-- App Files -->
+          <script src="./src/js/app/services/dataService.js"></script>
+          <script src="./src/js/app/patient/patient.js"></script>
+          <script src="./src/js/app/discharge/discharge.js"></script>
+          <script src="src/js/app/allergies/allergies.js"></script>
+          <script src="src/js/app/clinicalSummary/clinicalSummary.js"></script>
+          <script src="src/js/app/submit/submit.js"></script>
+          <script src="src/js/app/medications/medications.js"></script>
+          <script src="src/js/app/gp/gp.js"></script>
+</body>
+</html>

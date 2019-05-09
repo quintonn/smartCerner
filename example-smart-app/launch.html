@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel='stylesheet' type='text/css' href='./src/css/example-smart-app.css'>
+    <!--
+      Temporarily disable cerner-smart-embeddable-lib
+      <link rel='stylesheet' type='text/css' href='./lib/css/cerner-smart-embeddable-lib-1.0.0.min.css'>
+    -->
+    <title>Example-SMART-App</title>
+  </head>
+  <body>
+    <!-- Required JS files to enable this page to embed within an MPage -->
+    <!--
+      Temporarily disable cerner-smart-embeddable-lib
+      <script src='https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js'></script>
+      <script src='./lib/js/cerner-smart-embeddable-lib-1.0.0.min.js'></script>
+    -->
+
+    <!-- FHIR Client JS Library -->
+    <script src='./lib/js/fhir-client-v0.1.12.js'></script>
+
+    <!-- Prevent session bleed caused by single threaded embedded browser and sessionStorage API -->
+    <!-- https://github.com/cerner/fhir-client-cerner-additions -->
+    <script src='./lib/js/fhir-client-cerner-additions-1.0.0.js'></script>
+    <script>
+        var scopes = [];
+        scopes.push('patient/Patient.read');
+        scopes.push('patient/Observation.read');
+        scopes.push('patient/Encounter.read');
+        scopes.push('patient/AllergyIntolerance.read');
+        scopes.push('patient/MedicationStatement.read');
+        scopes.push('patient/MedicationOrder.read');
+        scopes.push('user/Patient.read');
+        scopes.push('user/Observation.read');
+        scopes.push('user/Encounter.read');
+        scopes.push('launch');
+        scopes.push('online_access openid profile');
+
+        FHIR.oauth2.authorize({
+            //'client_id': '6e8b9e5b-aff8-4340-940b-652f18defd7e',
+            'client_id': '3e31fa42-e8e8-40ea-b45c-498d35eb6df5',
+            'scope': scopes.join(' ')
+        });
+    </script>
+    <div class="spinner">
+      <div class="bounce1"></div>
+      <div class="bounce2"></div>
+      <div class="bounce3"></div>
+    </div>
+  </body>
+</html>

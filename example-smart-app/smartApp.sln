@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.202
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "example-smart-app", ".", "{EA40B9C6-F71D-45E9-ACAE-5BBAE252A56E}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_2974"
+		Debug.AspNetCompiler.PhysicalPath = "..\example-smart-app\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_2974\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_2974"
+		Release.AspNetCompiler.PhysicalPath = "..\example-smart-app\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_2974\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "2974"
+		SlnRelativePath = "..\example-smart-app\"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EA40B9C6-F71D-45E9-ACAE-5BBAE252A56E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA40B9C6-F71D-45E9-ACAE-5BBAE252A56E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B398204A-8438-42F0-9C96-00EEFD33FE0A}
+	EndGlobalSection
+EndGlobal

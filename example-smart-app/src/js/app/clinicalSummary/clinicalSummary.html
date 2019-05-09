@@ -1,0 +1,22 @@
+﻿<div class="card">
+    <div class="card-header">
+        Clinical Summary
+    </div>
+    <div class="form-group p-2">
+        <!--<label>Clinical Summary</label>-->
+        <textarea class="form-control bg-light" rows="3" ng-model="$ctrl.summary" required></textarea>
+    </div>
+
+    <div class="card-body" ng-if="$ctrl.error != ''">
+        <div class="alert alert-danger" role="alert">
+            {{$ctrl.error}}
+        </div>
+    </div>
+
+    <div class="card-body text-center ">
+        <a class="btn btn-block" ng-class="{'btn-success': $ctrl.approved, 'btn-danger': $ctrl.approved == false}" ng-click="$ctrl.approve(item)">
+            <i class="fas fa-check" ng-if="$ctrl.approved == true"></i>
+            <i class="fas fa-times" ng-if="$ctrl.approved != true"></i>
+        </a>
+    </div>
+</div>

@@ -1,0 +1,71 @@
+﻿<div class="card">
+    <div class="card-header">
+        Allergies & Adverse Reactions
+    </div>
+
+    <div class="card-body text-center" ng-if="$ctrl.loading == true">
+        <!--<div class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+        </div>-->
+        <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+        <p>Loading...</p>
+    </div>
+
+    <div class="card-body" ng-if="$ctrl.data.length == 0">
+        <div class="alert alert-dark" role="alert">
+            There are no allergy or adverse reactions for this patient.
+        </div>
+    </div>
+
+    <div class="card-body" ng-if="$ctrl.ready == true">
+        <div class="accordion" id="allergyAccordion">
+            <div class="card" ng-repeat="item in $ctrl.data">
+                <div class="btn btn-primary" type="button" ng-click="$ctrl.expand(item)">
+
+                    {{item.code.coding[0].display}}
+
+                    <a class="float-md-left btn-dark btn" ng-click="$ctrl.select(item); $event.stopPropagation();">
+                        <i class="fas fa-check" ng-if="item.selected == true"></i>
+                        <i class="fas fa-times" ng-if="item.selected != true"></i>
+
+                        <!--<input type="checkbox" class="float-md-left" id="customCheck1" ng-click="$event.stopPropagation();" />-->
+                    </a>
+                </div>
+                <div ng-if="item.expanded == true">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-6 font-weight-bold">Substance:</div>
+                            <div class="col-sm-6">{{item.code.coding[0].display}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 font-weight-bold">Status:</div>
+                            <div class="col-sm-6">{{item.clinicalStatus}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 font-weight-bold">Category:</div>
+                            <div class="col-sm-6">{{item.category[0]}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 font-weight-bold">Criticality:</div>
+                            <div class="col-sm-6">{{item.criticality}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-body" ng-if="$ctrl.error != ''">
+        <div class="alert alert-danger" role="alert">
+            {{$ctrl.error}}
+        </div>
+    </div>
+
+    <div class="card-body text-center ">
+        <a class="btn btn-block" ng-class="{'btn-success': $ctrl.approved, 'btn-danger': $ctrl.approved == false}" ng-click="$ctrl.approve(item)">
+            <i class="fas fa-check" ng-if="$ctrl.approved == true"></i>
+            <i class="fas fa-times" ng-if="$ctrl.approved != true"></i>
+        </a>
+    </div>
+</div>

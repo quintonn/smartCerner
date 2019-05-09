@@ -1,0 +1,64 @@
+﻿<div class="row">
+    <div class="col-2 border-right" style="height:70vh; overflow-y: scroll">
+        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+            <a ng-repeat="item in $ctrl.menu" class="nav-link" ng-class="{active : $ctrl.activeMenu == item.id}" href="#" ng-click="$ctrl.selectMenu(item)">
+                {{item.name}}
+                <span class="badge float-right" ng-class="{'badge-success': $ctrl.isValid(item) == true, 'badge-danger': $ctrl.isValid(item) != true}">
+                    <i class="fas fa-check" ng-if="$ctrl.isValid(item) == true"></i>
+                    <i class="fas fa-times" ng-if="$ctrl.isValid(item) != true"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="tab-content">
+            <div ng-repeat="item in $ctrl.menu" class="fade tab-pane p2" ng-class="{active: $ctrl.activeMenu == item.id, show: $ctrl.activeMenu == item.id}">
+                <patient ng-if="item.id == 'patient'"></patient>
+                <gp ng-if="item.id == 'gp'"></gp>
+                <diagnosis ng-if="item.id == 'diagnosis'" class="card">
+                    <div class="card-header">
+                        {{item.name}}
+                    </div>
+                    <div class="card-body">
+                        <div class="alert alert-dark" role="alert">
+                            Where will discharge information come from?
+                        </div>
+                    </div>
+                </diagnosis>
+                <clinical-summary ng-if="item.id == 'summary'"></clinical-summary>
+                <medications ng-if="item.id == 'medications'"></medications>
+                <allergies ng-if="item.id == 'allergies'"></allergies>
+
+                <admission ng-if="item.id == 'admission'">{{item.name}}</admission>
+                <assessment ng-if="item.id == 'assessment'">{{item.name}}</assessment>
+                <discharge-details ng-if="item.id == 'dischargeDetails'">{{item.name}}</discharge-details>
+                <distribution ng-if="item.id == 'distribution'">{{item.name}}</distribution>
+                <requirements ng-if="item.id == 'requirements'">{{item.name}}</requirements>
+                <advice ng-if="item.id == 'advice'">{{item.name}}</advice>
+                <investigation ng-if="item.id == 'investigation'">{{item.name}}</investigation>
+                <legal ng-if="item.id == 'legal'">{{item.name}}</legal>
+                <research ng-if="item.id == 'research'">{{item.name}}</research>
+                <concerns ng-if="item.id == 'concerns'">{{item.name}}</concerns>
+                <person ng-if="item.id == 'person'">{{item.name}}</person>
+                <plan ng-if="item.id == 'plan'">{{item.name}}</plan>
+                <procedures ng-if="item.id == 'procedures'">{{item.name}}</procedures>
+                <referrer ng-if="item.id == 'referrer'">{{item.name}}</referrer>
+                <safety ng-if="item.id == 'safety'">{{item.name}}</safety>
+                <social ng-if="item.id == 'social'">{{item.name}}</social>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-6">
+        <div class="card">
+            <div class="card-header">
+                FHIR Message
+            </div>
+            <div class="card-body">
+                <pre style="max-height:400px">{{$ctrl.fhirMessage}}</pre>
+            </div>
+            
+        </div>
+    </div>
+</div>
